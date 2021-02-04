@@ -10,6 +10,17 @@ $(document).ready(function() {
  */
 function initializePage() {
 	console.log("Javascript connected!");
+
+	// Listen to clicks on the friend's name
+	$(".each-friend a").click(function friendClick(e) {
+		e.preventDefault();
+		// alert("Clicked!");
+		var cur_name = $(this).find("h1").text();
+		// console.log(cur_name);
+		var anag_name = anagrammedName(cur_name);
+		// console.log(anag_name);
+		$(this).find("h1").text(anag_name);
+	});
 }
 
 function anagrammedName(name) {
@@ -38,6 +49,9 @@ function anagrammedName(name) {
 	}
 	else if (name == "Grace Hopper") {
 		return "Gear Chopper";
+	}
+	else if (name == "Minxuan") {
+		return "Xuanmin";
 	}
 	else {
 		console.log(name + " not known for anagramming.");
