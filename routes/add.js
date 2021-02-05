@@ -13,18 +13,22 @@ exports.addFriend = function(request, response){
 
 	var newName = request.query.name;
 	var newDescp = request.query.description;
-	if(! objExists(data.friends, newName)) {
-		var newFriend = {
-			"name": newName,
-			"description": newDescp,
-			"imageURL": "http://lorempixel.com/400/400/people/"
-		};
-		data.friends.push(newFriend);
-		console.log(newFriend);
-		console.log("# of friends: " + data.friends.length);
+	if(newName == "" || newDescp == "") {
+		console.log("Incomplete information!");
 	}else{
-		console.log(newName + " is your friend already!");
-	}	
+		if(! objExists(data.friends, newName)) {
+			var newFriend = {
+				"name": newName,
+				"description": newDescp,
+				"imageURL": "http://lorempixel.com/400/400/people/"
+			};
+			data.friends.push(newFriend);
+			console.log(newFriend);
+			console.log("# of friends: " + data.friends.length);
+		}else{
+			console.log(newName + " is your friend already!");
+		}	
+	}
 	response.render("index", data);
 };
 
