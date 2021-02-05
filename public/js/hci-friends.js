@@ -50,7 +50,7 @@ function anagrammedName(name) {
 	else if (name == "Grace Hopper") {
 		return "Gear Chopper";
 	}
-	else if (name == "Minxuan") {
+	else if (name.toLowerCase() == "minxuan") {
 		return "Xuanmin";
 	}
 	else {

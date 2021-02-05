@@ -2,6 +2,6 @@
 var data = require('../data.json');
 
 exports.view = function(request, response){
-	console.log(data);
+	// console.log(data);
 	response.render('index', data);
 };
